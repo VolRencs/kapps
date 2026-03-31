@@ -1,0 +1,66 @@
+pkgname=dolphin
+pkgver=25.12.3
+pkgrel=1
+epoch=1
+pkgdesc='KDE File Manager'
+arch=(x86_64)
+url='https://apps.kde.org/dolphin/'
+license=(LGPL-2.0-or-later)
+depends=(baloo
+         baloo-widgets
+         gcc-libs
+         glibc
+         kbookmarks
+         kcmutils
+         kcodecs
+         kcolorscheme
+         kcompletion
+         kconfig
+         kconfigwidgets
+         kcoreaddons
+         kcrash
+         kdbusaddons
+         kfilemetadata
+         kguiaddons
+         ki18n
+         kiconthemes
+         kio
+         kio-extras
+         kjobwidgets
+         knewstuff
+         knotifications
+         kparts
+         kservice
+         ktextwidgets
+         kwidgetsaddons
+         kwindowsystem
+         kxmlgui
+         qt6-base
+         qt6-multimedia
+         solid)
+makedepends=(extra-cmake-modules
+             ninja)
+optdepends=('dolphin-plugins: extra plugins'
+            'ffmpegthumbs: video thumbnails'
+            'filelight: detailed disk usage statistics'
+            'kde-cli-tools: for editing file type options'
+            'kdegraphics-thumbnailers: PDF and PS thumbnails'
+            'kdenetwork-filesharing: samba usershare properties menu'
+            'kdf: view disk usage'
+            'kio-admin: for managing files as administrator'
+            'kompare: comparing files menu action'
+            'konsole: terminal panel'
+            'purpose: share context menu')
+groups=(kde-applications
+        kde-system)
+source=(https://download.kde.org/stable/release-service/$pkgver/src/$pkgname-$pkgver.tar.xz)
+sha256sums=('9961de7cc076d9d7d598bb7f53afdebcfba20567093231f42ba72e031e089a3b')
+build() {
+  cmake -B build -S $pkgname-$pkgver -G Ninja \
+    -DBUILD_TESTING=OFF
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}

@@ -1,0 +1,34 @@
+pkgname=kdegraphics-thumbnailers
+pkgver=25.12.3
+pkgrel=1
+epoch=1
+pkgdesc='Thumbnailers for various graphics file formats'
+url='https://apps.kde.org/kdegraphics_thumbnailers/'
+arch=(x86_64)
+license=(GPL-2.0-or-later LGPL-2.0-or-later)
+depends=(gcc-libs
+         glibc
+         karchive
+         kcoreaddons
+         kio
+         libkdcraw
+         libkexiv2
+         qt6-base)
+makedepends=(
+         extra-cmake-modules
+         ninja)
+groups=(kde-applications
+        kde-graphics)
+source=(https://download.kde.org/stable/release-service/$pkgver/src/$pkgname-$pkgver.tar.xz)
+sha256sums=('05eb9e268c161d25c6899f1affdb99acaf8ec506a11083fea807e335a5de18f9')
+
+build() {
+  cmake -B build -S $pkgname-$pkgver -G Ninja \
+    -DBUILD_TESTING=OFF \
+    -DDISABLE_MOBIPOCKET=ON
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}
