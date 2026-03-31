@@ -10,8 +10,8 @@ on:
         default: |
           [
             "kio-extras",
-            "kdegraphics-thumbnailers"
-            "dolphin"
+            "kdegraphics-thumbnailers",
+            "dolphin",
             "kate"
           ]
 
