@@ -1,6 +1,6 @@
 pkgname=kate
 pkgver=25.12.3
-pkgrel=1
+pkgrel=2
 epoch=1
 arch=(x86_64)
 license=(GPL-2.0-or-later LGPL-2.0-or-later)
@@ -32,7 +32,6 @@ depends=(gcc-libs
          kwindowsystem
          kxmlgui
          qt6-base
-         sh
          syntax-highlighting)
 optdepends=('clang: C and C++ LSP support'
             'git: git-blame plugin' 
@@ -43,7 +42,6 @@ optdepends=('clang: C and C++ LSP support'
             'rust: Rust LSP support'
             'texlab: LaTeX LSP support')
 makedepends=(extra-cmake-modules
-             qtkeychain-qt6
              ninja)
 conflicts=(kwrite)
 provides=(kwrite)
