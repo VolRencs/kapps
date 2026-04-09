@@ -54,7 +54,7 @@ source=(https://download.kde.org/stable/release-service/$pkgver/src/$pkgname-$pk
 sha256sums=('06ea32a51d8e9efebc4a4e63eb3ef8b23b68a5af5ab38045a7e2837a4fd193b4')
 
 build() {
-  cmake -B build -S $pkgname-$pkgver \
+  cmake -B build -S $pkgname-$pkgver -G Ninja \
     -DGWENVIEW_SEMANTICINFO_BACKEND="Baloo" \
     -DBUILD_TESTING=OFF
   cmake --build build
