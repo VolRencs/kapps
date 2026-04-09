@@ -1,0 +1,65 @@
+pkgname=gwenview
+pkgver=25.12.3
+pkgrel=1
+epoch=1
+pkgdesc='A fast and easy to use image viewer'
+url='https://apps.kde.org/gwenview/'
+arch=(x86_64)
+license=(GPL-2.0-or-later LGPL-2.0-or-later)
+depends=(baloo
+         cfitsio
+         exiv2
+         gcc-libs
+         glibc
+         kcolorscheme
+         kcompletion
+         kconfig
+         kconfigwidgets
+         kcoreaddons
+         kcrash
+         kfilemetadata
+         kguiaddons
+         ki18n
+         kiconthemes
+         kimageannotator
+         kio
+         kitemmodels
+         kitemviews
+         kjobwidgets
+         kparts
+         kservice
+         kwidgetsaddons
+         kxmlgui
+         lcms2
+         libjpeg-turbo
+         libkdcraw
+         libpng
+         libtiff
+         libx11
+         plasma-activities
+         qt6-base
+         qt6-multimedia
+         qt6-svg
+         solid
+         wayland)
+optdepends=('kamera: import pictures from gphoto2 cameras'
+            'kimageformats: support for xcf, exr, psd, and more image formats'
+            'qt6-imageformats: support for tiff, webp, and more image formats')
+makedepends=(extra-cmake-modules
+             wayland-protocols
+             ninja)
+groups=(kde-applications
+        kde-graphics)
+source=(https://download.kde.org/stable/release-service/$pkgver/src/$pkgname-$pkgver.tar.xz)
+sha256sums=('06ea32a51d8e9efebc4a4e63eb3ef8b23b68a5af5ab38045a7e2837a4fd193b4')
+
+build() {
+  cmake -B build -S $pkgname-$pkgver \
+    -DGWENVIEW_SEMANTICINFO_BACKEND="Baloo" \
+    -DBUILD_TESTING=OFF
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}
