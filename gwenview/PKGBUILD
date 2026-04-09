@@ -1,13 +1,12 @@
 pkgname=gwenview
 pkgver=25.12.3
-pkgrel=1
+pkgrel=2
 epoch=1
 pkgdesc='A fast and easy to use image viewer'
 url='https://apps.kde.org/gwenview/'
 arch=(x86_64)
 license=(GPL-2.0-or-later LGPL-2.0-or-later)
 depends=(baloo
-         cfitsio
          exiv2
          gcc-libs
          glibc
