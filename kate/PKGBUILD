@@ -1,6 +1,6 @@
 pkgname=kate
-pkgver=25.12.3
-pkgrel=2
+pkgver=26.04.0
+pkgrel=1
 epoch=1
 arch=(x86_64)
 license=(GPL-2.0-or-later LGPL-2.0-or-later)
@@ -47,7 +47,7 @@ conflicts=(kwrite)
 provides=(kwrite)
 replaces=(kwrite)
 source=(https://download.kde.org/stable/release-service/$pkgver/src/$pkgname-$pkgver.tar.xz)
-sha256sums=('d761d976c19922843617211d9069ded08d6eb43891e28e56eb9385b626ce90ab')
+sha256sums=('ad4a04785a289f9ffb58f71eae6f5f2236118c09bd08b773b49a4a6363418d0d')
 
 build() {
   cmake -B build -S $pkgname-$pkgver -G Ninja \

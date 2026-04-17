@@ -1,5 +1,5 @@
 pkgname=kio-extras
-pkgver=25.12.3
+pkgver=26.04.0
 pkgrel=1
 epoch=1
 pkgdesc='Additional components to increase the functionality of KIO'
@@ -42,12 +42,11 @@ optdepends=('kimageformats: thumbnails for additional image formats'
             'openexr: EXR format thumbnails'
             'perl: info kioslave'
             'plasma-activities-stats: recently used kioslave'
-            'qt6-imageformats: thumbnails for additional image formats'
-            'taglib: audio file thumbnails')
+            'qt6-imageformats: thumbnails for additional image formats')
 groups=(kde-applications
         kde-network)
 source=(https://download.kde.org/stable/release-service/$pkgver/src/$pkgname-$pkgver.tar.xz)
-sha256sums=('b161e363320f96cffba0195e4045a88049fc3c5b93272532dce5ab6ce886916a')
+sha256sums=('0abc1d61d03d3ebb04c05840d5910475f46abf97efef65e354c13c12a1c31fd2')
 
 build() {
   cmake -B build -S $pkgname-$pkgver -G Ninja \
