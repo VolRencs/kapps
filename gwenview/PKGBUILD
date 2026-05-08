@@ -1,5 +1,5 @@
 pkgname=gwenview
-pkgver=26.04.0
+pkgver=26.04.1
 pkgrel=1
 epoch=1
 pkgdesc='A fast and easy to use image viewer'
@@ -50,7 +50,7 @@ makedepends=(extra-cmake-modules
 groups=(kde-applications
         kde-graphics)
 source=(https://download.kde.org/stable/release-service/$pkgver/src/$pkgname-$pkgver.tar.xz)
-sha256sums=('45aa9d633a867567dae07d75e43421e8f156b176755f8f81b888597955b115a9')
+sha256sums=('47c8d6d97c1ec3c6e8138df4b233f7e1f7ebc86d3b04bf0b43196dea430a03bd')
 
 build() {
   cmake -B build -S $pkgname-$pkgver -G Ninja \
